@@ -39,3 +39,10 @@ Hoziroq ro'yhatdan o'tib, 30 minutlik Individual konsultatsiyaga (300 ming so'm 
 
 🤫Pssst! Tez natija xohlamaydiganlar formani to'ldirmasin:
 """
+    check_sub_msg = """
+Productive School botiga xush kelibsiz✨
+
+🎁"Noldan 3 oygacha Roadmap"ga ega bo'lganingiz bilan tabriklaymiz!
+
+Marhamat uni olish uchun asoschimiz kanaliga obuna boʻling👇
+"""

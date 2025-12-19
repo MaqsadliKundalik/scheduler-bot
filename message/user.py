@@ -1,11 +1,13 @@
 from aiogram import Router, F
-from aiogram.types import Message, FSInputFile
+from aiogram.types import Message, FSInputFile, CallbackQuery
 from models.users import User
 from filters import IsNewUser
 from aiogram.fsm.context import FSMContext
 from states import RegisterState
 from msges import Message_contents
+from aiogram.enums import ChatMemberStatus
 from asyncio import sleep
+from config import CHANNEL_ID, CHANNEL_URL
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 import re
 
@@ -69,6 +71,21 @@ async def register_user_phone(message: Message, state: FSMContext):
 async def register_user_start(message: Message, state: FSMContext):
     await message.answer(Message_contents.waiting_for_name_prompt)
     await state.set_state(RegisterState.WAITING_FOR_NAME)
+
+@router.callback_query(F.data == "check_subscribe")
+async def check_subscription(callback_query: CallbackQuery, state: FSMContext):
+    member = await callback_query.bot.get_chat_member(chat_id=CHANNEL_ID, user_id=callback_query.from_user.id)
+    if member.status in [ChatMemberStatus.MEMBER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.CREATOR]:
+        user = await User.get_or_none(telegram_id=str(callback_query.from_user.id))
+        if not user:
+            await callback_query.message.answer(Message_contents.waiting_for_name_prompt)
+            await state.set_state(RegisterState.WAITING_FOR_NAME)
+        else:
+            await callback_query.message.answer(Message_contents.already_registered)
+        await callback_query.answer("Obunangiz tasdiqlandi!", show_alert=True)
+        await callback_query.message.delete()
+    else:
+        await callback_query.answer("Iltimos, kanalga obuna bo'ling va qayta tekshiring.", show_alert=True)
 
 @router.message(F.text == "/start")
 async def start_command(message: Message):
