@@ -63,7 +63,7 @@ async def register_user_phone(message: Message, state: FSMContext):
 
     await message.answer(Message_contents.registration_complete)
     await state.clear()
-    await sleep(60)
+    await sleep(3600)
     markup = InlineKeyboardBuilder().button(text="🔥 Konsultatsiya olish", url="https://tally.so/r/rjDzXX").as_markup()
     await message.answer_photo(photo=FSInputFile("image.png"), caption=Message_contents.consult_msg, reply_markup=markup, parse_mode="HTML")
 
