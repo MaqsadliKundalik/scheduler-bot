@@ -19,6 +19,7 @@ class CheckSUbChannelMiddleware(BaseMiddleware):
                 text="✅ Obunani tekshirish",
                 callback_data="check_subscribe"
             )
+            markup.adjust(1)
             markup = markup.as_markup()
             if member.status not in [ChatMemberStatus.MEMBER, ChatMemberStatus.CREATOR, ChatMemberStatus.ADMINISTRATOR]:
                 
