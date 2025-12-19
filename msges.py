@@ -31,7 +31,7 @@ Asosiy menyudasiz!
 
 Ha, aynan Siz uchun moslashtirilgan!
 
-Aynan siz – Ingliz tilini tez o'rgatish bo'yicha mutaxassis, o'quvchilari noldan 5.5 oyda 5.5 IELTS (https://t.me/Feedback_ProEdu/205), noldan 3 oyda B1 (https://t.me/Feedback_ProEdu/211) olgan
+Aynan siz – Ingliz tilini tez o'rgatish bo'yicha mutaxassis, o'quvchilari noldan 5.5 oyda <a href="https://t.me/Feedback_ProEdu/205"> 5.5 IELTS</a>, noldan 3 oyda <a href="https://t.me/Feedback_ProEdu/211">B1</a> olgan
 
 🏆Azizbek Zubaydullayevning "Fast English" uslubining aynan Sizga moslashtirilgan Yo'l Xaritasiga ega bo'lishingiz mumkin!
 
