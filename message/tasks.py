@@ -15,7 +15,17 @@ async def send_posts_task(bot: Bot):
         for user in users:
             for post in scheduled_posts:
                 now = datetime.now(timezone.utc)
-                send_at = user.created_at + post.send_time - timedelta(minutes=1)
+                
+                if post.send_time.days >= 1:
+                    days = post.send_time.days
+                    remaining_seconds = post.send_time.seconds
+                    hours = remaining_seconds // 3600
+                    
+                    send_at = user.created_at.replace(hour=hours, minute=0, second=0, microsecond=0) + timedelta(days=days)
+                else:
+                    send_at = user.created_at + post.send_time
+                
+                send_at = send_at - timedelta(minutes=1)
                 
                 if send_at <= now:
                     already_viewed = await ViewsPosts.filter(post=post, user_telegram_id=user.telegram_id).first()
