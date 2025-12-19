@@ -65,7 +65,6 @@ async def register_user_phone(message: Message, state: FSMContext):
     markup = InlineKeyboardBuilder().button(text="🔥 Konsultatsiya olish", url="https://tally.so/r/rjDzXX").as_markup()
     await message.answer_photo(photo=FSInputFile("image.png"), caption=Message_contents.consult_msg, reply_markup=markup, parse_mode="HTML")
 
-
 @router.message(IsNewUser())
 async def register_user_start(message: Message, state: FSMContext):
     await message.answer(Message_contents.waiting_for_name_prompt)
