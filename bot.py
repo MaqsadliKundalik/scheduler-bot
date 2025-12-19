@@ -12,7 +12,7 @@ basicConfig(level=INFO)
 dp = Dispatcher()
 dp.include_router(admin.router)
 dp.include_router(user.router)
-dp.message.middleware(CheckSUbChannelMiddleware())
+# dp.message.middleware(CheckSUbChannelMiddleware())
 
 async def main():
     bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(protect_content=True))

@@ -1,8 +1,10 @@
 class Message_contents:
     waiting_for_name_prompt = """
-🔥Roadmapni olish uchun ozgina qoldi...
+Azizbek Zubaydullayevning bonus botiga xush kelibsiz!✨
 
-Marhamat, uni olish uchun o'z ism va familiyangizni kiriting👇
+❤️‍🔥Ingliz tilini oʻrganishga doir ajoyib kontentlarni kuzatish uchun @AzizbekZubaydullayev ga obuna boʻlishingiz mumkin! 
+
+Marhamat, "Noldan 3 oyda B1 roadmap" videodarsini olish uchun ism familiyangizni yozing👇
 """
 
     waiting_for_phone_number_prompt = """
@@ -46,3 +48,4 @@ Productive School botiga xush kelibsiz✨
 
 Marhamat uni olish uchun asoschimiz kanaliga obuna boʻling👇
 """
+    
