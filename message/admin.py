@@ -68,10 +68,8 @@ async def handle_schedule_time(message: Message, state: FSMContext):
     try:
         text = message.text.strip().lower()
         
-        # Default qiymatlar - nima aytilmasa 0
         days = hours = minutes = 0
 
-        # Kun, soat, minut qiymatlarini qidirish
         day_match = re.search(r'(\d+)\s*kun', text)
         hour_match = re.search(r'(\d+)\s*soat', text)
         minute_match = re.search(r'(\d+)\s*minut', text)
@@ -83,15 +81,11 @@ async def handle_schedule_time(message: Message, state: FSMContext):
         if minute_match:
             minutes = int(minute_match.group(1))
 
-        # Jami sekundlarni hisoblash
         total_seconds = days * 86400 + hours * 3600 + minutes * 60
-
-        # Agar hech qanday vaqt ko'rsatilmasa (hamma 0 bo'lsa)
         if total_seconds <= 0:
             await message.answer("❌ Vaqt noto'g'ri!\n\nIltimos, kamida bitta qiymat kiriting:\n• 2 soat\n• 30 minut\n• 1 kun 5 soat")
             return
 
-        # Bazaga saqlash (timedelta formatida)
         from datetime import timedelta
         send_time = timedelta(seconds=total_seconds)
         
@@ -101,7 +95,6 @@ async def handle_schedule_time(message: Message, state: FSMContext):
             send_time=send_time
         )
         
-        # Foydalanuvchiga tasdiq
         time_parts = []
         if days > 0:
             time_parts.append(f"{days} kun")

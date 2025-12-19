@@ -14,13 +14,9 @@ async def send_posts_task(bot: Bot):
         scheduled_posts = await Post.all()
         for user in users:
             for post in scheduled_posts:
-                # Hozirgi vaqtni UTC timezone bilan olish
                 now = datetime.now(timezone.utc)
-                
-                # Foydalanuvchi qo'shilgan vaqt + post yuborish vaqti - 1 minut
                 send_at = user.created_at + post.send_time - timedelta(minutes=1)
                 
-                # Agar vaqt yetib kelgan bo'lsa
                 if send_at <= now:
                     already_viewed = await ViewsPosts.filter(post=post, user_telegram_id=user.telegram_id).first()
                     if not already_viewed:
@@ -42,5 +38,4 @@ async def send_posts_task(bot: Bot):
                             await asyncio.sleep(e.retry_after)
                         except Exception as e:
                             print(f"Error deleting old post for user {user.telegram_id}: {e}")
-        print("Posts checked and sent if needed.")
         await asyncio.sleep(10)
