@@ -205,3 +205,10 @@ async def export_users_to_excel(message: Message):
         
     except Exception as e:
         await message.answer(f"Xatolik yuz berdi: {e}")
+
+@router.message(F.text == "/check")
+async def check_msg(message: Message):
+    if message.from_user.id != ADMIN_ID:
+        return
+
+    await message.answer(F"Chat ID: {message.chat.id}\nMessage ID: {message.message_id}")
