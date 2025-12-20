@@ -50,4 +50,4 @@ async def send_posts_task(bot: Bot):
                             await asyncio.sleep(e.retry_after)
                         except Exception as e:
                             print(f"Error deleting old post for user {user.telegram_id}: {e}")
-        await asyncio.sleep(10)
+        await asyncio.sleep(5)
