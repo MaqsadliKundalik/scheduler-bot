@@ -62,6 +62,11 @@ async def register_user_phone(message: Message, state: FSMContext):
     )
 
     await message.answer(Message_contents.registration_complete, reply_markup=consultation_menu_rk, parse_mode="HTML")
+    
+    await message.bot.copy_message(chat_id=message.from_user.id, from_chat_id=5165396993, message_id=569)
+    await message.bot.copy_message(chat_id=message.from_user.id, from_chat_id=5165396993, message_id=575)
+    
+    
     await state.clear()
     await sleep(3600)
     await message.answer_photo(photo=FSInputFile("image.png"), caption=Message_contents.consult_msg, reply_markup=consultation_menu_ik, parse_mode="HTML")
