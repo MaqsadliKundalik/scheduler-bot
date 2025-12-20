@@ -12,9 +12,11 @@ Marhamat, raqamingizni kiriting:
 """
 
     registration_complete = """
-Tabriklaymiz, botda muvaffaqqiyatli ro'yhatdan o'tdingiz!🎉
+Azizbek Zubaydullayevning bonus botiga xush kelibsiz!✨
 
-Mana sovgalaringiz!✨
+❤️‍🔥Ingliz tilini oʻrganishga doir ajoyib kontentlarni kuzatish uchun @AzizbekZubaydullayev ga obuna boʻlishingiz mumkin! 
+
+Mana, sovg’alaringiz🎁
 """
 
     subscribe_prompt = """
