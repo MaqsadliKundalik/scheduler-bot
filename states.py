@@ -11,6 +11,8 @@ class ScheduleState(StatesGroup):
     WAITING_FOR_SCHEDULE_POST = State()
     WAITING_FOR_SCHEDULE_TIME = State()
 
+    WAITING_CHECK = State()
+
 class ConsultationState(StatesGroup):
     waiting_for_age = State()
     waiting_for_education_or_work = State()

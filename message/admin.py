@@ -207,8 +207,13 @@ async def export_users_to_excel(message: Message):
         await message.answer(f"Xatolik yuz berdi: {e}")
 
 @router.message(F.text == "/check")
-async def check_msg(message: Message):
+async def check_msg(message: Message, state: FSMContext):
     if message.from_user.id != ADMIN_ID:
         return
+    await state.set_state(ScheduleState.WAITING_CHECK)
+    await message.answer("Test uchun kutyapman...")
 
+@router.message(ScheduleState.WAITING_CHECK)
+async def handle_check_msg(message: Message, state: FSMContext):
     await message.answer(F"Chat ID: {message.chat.id}\nMessage ID: {message.message_id}")
+    await state.clear()
