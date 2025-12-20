@@ -22,6 +22,8 @@ async def send_posts_task(bot: Bot):
                     hours = remaining_seconds // 3600
                     
                     send_at = user.created_at.replace(hour=hours, minute=0, second=0, microsecond=0) + timedelta(days=days)
+                elif post.send_time.seconds == 60:
+                    send_at = user.created_at
                 else:
                     send_at = user.created_at + post.send_time
                 
@@ -39,7 +41,7 @@ async def send_posts_task(bot: Bot):
                             await asyncio.sleep(e.retry_after)
                         except Exception as e:
                             print(f"Error sending post to user {user.telegram_id}: {e}")
-                    elif already_viewed.viewed_at + timedelta(days=1) <= now:
+                    elif already_viewed.viewed_at + timedelta(days=3) <= now:
                         try:
                             await bot.delete_message(chat_id=int(user.telegram_id), message_id=already_viewed.message_id)
                         except TelegramForbiddenError:

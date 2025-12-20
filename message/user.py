@@ -8,7 +8,7 @@ from msges import Message_contents
 from aiogram.enums import ChatMemberStatus
 from asyncio import sleep
 from config import CHANNEL_ID, CHANNEL_URL
-from aiogram.utils.keyboard import InlineKeyboardBuilder
+from keyboards import consultation_menu_ik, consultation_menu_rk
 import re
 
 router = Router()
@@ -61,11 +61,10 @@ async def register_user_phone(message: Message, state: FSMContext):
         phone_number=formatted_number
     )
 
-    await message.answer(Message_contents.registration_complete)
+    await message.answer(Message_contents.registration_complete, reply_markup=consultation_menu_rk, parse_mode="HTML")
     await state.clear()
     await sleep(3600)
-    markup = InlineKeyboardBuilder().button(text="🔥 Konsultatsiya olish", url="https://tally.so/r/rjDzXX").as_markup()
-    await message.answer_photo(photo=FSInputFile("image.png"), caption=Message_contents.consult_msg, reply_markup=markup, parse_mode="HTML")
+    await message.answer_photo(photo=FSInputFile("image.png"), caption=Message_contents.consult_msg, reply_markup=consultation_menu_ik, parse_mode="HTML")
 
 @router.message(IsNewUser())
 async def register_user_start(message: Message, state: FSMContext):

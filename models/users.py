@@ -9,3 +9,17 @@ class User(models.Model):
 
     def __str__(self):
         return self.name
+    
+class ConsultationState(models.Model):
+    id = fields.IntField(pk=True)
+    user = fields.ForeignKeyField('models.User', related_name='consultations')
+    age = fields.IntField(null=True)
+    education_or_work = fields.TextField(null=True)
+    question1 = fields.TextField(null=True)
+    question2 = fields.TextField(null=True)
+    question3 = fields.TextField(null=True)
+    question4 = fields.TextField(null=True)
+    created_at = fields.DatetimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"ConsultationState of {self.user.name}"

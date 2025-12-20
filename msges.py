@@ -49,3 +49,43 @@ Productive School botiga xush kelibsiz✨
 Marhamat uni olish uchun asoschimiz kanaliga obuna boʻling👇
 """
     
+    consultation_questions = {
+        "age": "Yoshingiz nechida?",
+        "education_or_work": "O'qish/ishingiz?",
+        "question1": {
+            "text": "Hozirda \"Fast English\" kursi oʻquvchisimisiz?",
+            "options": {
+                "yes": "Ha",
+                "no": "Yo'q"
+            }
+        },
+        "question2": {
+            "text": "\"Noldan 3 oyda B1 tahlili & Roadmap\" videodarsini (32minutlik) ko'rdingizmi?",
+            "options": {
+                "yes": "Ha",
+                "no": "Yo'q"
+            }
+        },
+        # Qachon va qanday imtihon topshirmoqchisiz? Va qanday natija olmoqchisiz?
+
+        "question3": "Qachon va qanday imtihon topshirmoqchisiz? Va qanday natija olmoqchisiz?",
+        # 10 ballik shkalada, siz uchun ingliz tilini AYNI HOZIR o'rganish qanchalik muhim? 
+        "question4": {
+            "text": "10 ballik shkalada, siz uchun ingliz tilini AYNI HOZIR o'rganish qanchalik muhim?",
+            "options": {
+                "1-4": "1 - 4",
+                "5-7": "5 - 7",
+                "8-10": "8 - 10"
+                }
+        },
+        # Ingliz tilida 3 oy ichida o'zingiz orzu qilgan natijaga erishish uchun oyiga tahminan qancha pul sarf qilishga tayyorsiz? 
+        "question5": {
+            "text": "Ingliz tilida 3 oy ichida o'zingiz orzu qilgan natijaga erishish uchun oyiga tahminan qancha pul sarf qilishga tayyorsiz?",
+            "options": {
+                "0-400": "400 minggacha",
+                "300-400": "300 mingdan 400 minggacha",
+                "450-600": "450 mingdan 600 minggacha",
+                "600+": "600 mingdan ko'proq"
+            }
+        }
+    }
